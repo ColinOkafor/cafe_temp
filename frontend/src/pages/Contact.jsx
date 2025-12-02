@@ -10,7 +10,7 @@ function Contact() {
         const data = { name, email, message };
 
         try {
-            const res = await fetch("https://cafe-temp.onrender.com",
+            const res = await fetch("https://cafe-temp.onrender.com/frontend/contact/userInfo",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
