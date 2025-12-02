@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 const PORT = 3002;
-app.use(cors({ origin: 'http://localhost:2005' }));
+app.use(cors({ origin: 'https://cafe-temp-frontend.onrender.com' }));
 app.use(express.json());//parse JSON body
 app.use(express.urlencoded({ extended: true }));//parse form data
 
