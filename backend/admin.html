@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Information</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 16px;
+            font-family: Arial;
+        }
+
+        th,
+        td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 style="text-align:center;">Saved User Information</h2>
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const pass = params.get("pass");
+
+        fetch(`/admin/data?pass=${pass}`)
+            .then(res => res.json())
+            .then(data => {
+                const tbody = document.querySelector("#dataTable tbody");
+
+                data.forEach(user => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.message}</td>
+          `;
+                    tbody.appendChild(row);
+                });
+            });
+    </script>
+
+</body>
+
+</html>
