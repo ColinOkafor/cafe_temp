@@ -81,7 +81,7 @@ function Home() {
                         </Popup>
                     </Marker>
                 </MapContainer>
-                );
+
             </div>
         </div>
     )
